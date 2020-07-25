@@ -60,7 +60,7 @@ namespace StudentSIMS.Controllers
 
             var updateStudent = await _context.Student.FirstOrDefaultAsync(s => s.studentId == student.studentId);
 
-            _context.Entry(student).State = EntityState.Modified;
+            _context.Entry(updateStudent).State = EntityState.Modified;
 
             updateStudent.firstName = student.firstName;
             updateStudent.middleName = student.middleName;

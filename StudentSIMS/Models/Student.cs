@@ -19,7 +19,7 @@ namespace StudentSIMS.Models
         public string lastName { get; set; }
         public string emailAddress { get; set; }
         public int phoneNumber { get; set; }
-        [Timestamp]
+        //[Timestamp]
         public DateTime timeCreated { get; set; }
     }
 }
