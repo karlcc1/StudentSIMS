@@ -12,23 +12,23 @@ namespace StudentSIMS.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AddressController : ControllerBase
+    public class AddressesController : ControllerBase
     {
-        private readonly StudentContext _context;    
+        private readonly StudentContext _context;
 
-        public AddressController(StudentContext context)
+        public AddressesController(StudentContext context)
         {
             _context = context;
         }
 
-        // GET: api/Address
+        // GET: api/Addresses
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Address>>> GetAddress()
         {
             return await _context.Address.ToListAsync();
         }
 
-        // GET: api/Address/5
+        // GET: api/Addresses/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Address>> GetAddress(int id)
         {
@@ -42,22 +42,16 @@ namespace StudentSIMS.Controllers
             return address;
         }
 
-
-        //public Student student;
-        //public Address address;
-
-        // PUT: api/Address/5
+        // PUT: api/Addresses/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAddress(int id, Address address)
         {
-
-            if (id != address.studentId)
+            if (id != address.addressId)
             {
                 return BadRequest();
             }
-
 
             _context.Entry(address).State = EntityState.Modified;
 
@@ -80,7 +74,7 @@ namespace StudentSIMS.Controllers
             return NoContent();
         }
 
-        // POST: api/Address
+        // POST: api/Addresses
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
@@ -92,7 +86,7 @@ namespace StudentSIMS.Controllers
             return CreatedAtAction("GetAddress", new { id = address.addressId }, address);
         }
 
-        // DELETE: api/Address/5
+        // DELETE: api/Addresses/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Address>> DeleteAddress(int id)
         {

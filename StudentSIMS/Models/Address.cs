@@ -12,12 +12,13 @@ namespace StudentSIMS.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int addressId { get; set; }
-        public int studentId { get; set; }
+        //public int studentId { get; set; }
         public int streetNumber { get; set; }
         public string streetName { get; set; }
         public string suburb { get; set; }
         public string city { get; set; }
         public int postocde { get; set; }
         public string country { get; set; }
+        //public List<Student> Students { get; set; }
     }
 }
