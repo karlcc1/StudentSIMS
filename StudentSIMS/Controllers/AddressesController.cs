@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -26,13 +25,6 @@ namespace StudentSIMS.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Address>>> GetAddress()
         {
-            //var studentset = _context.Student;
-            //var jonstudent = studentset.Single(s => s.studentId == 6);
-
-            //Debug.WriteLine("-------------in betweeen Addresscontroller put----------------------------");
-            //Debug.WriteLine(jonstudent.firstName);
-            //Debug.WriteLine("-------------in betweeen Addresscontroller put----------------------------");
-
             return await _context.Address.ToListAsync();
         }
 
@@ -50,34 +42,12 @@ namespace StudentSIMS.Controllers
             return address;
         }
 
-        
-
         // PUT: api/Addresses/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
         public async Task<IActionResult> PutAddress(int id, Address address)
         {
-            //var studentset = _context.Student;
-            //var jonstudent = studentset.Single(s => s.studentId == 6);
-
-            //Debug.WriteLine("-------------in betweeen Addresscontroller put----------------------------");
-            //Debug.WriteLine(jonstudent.firstName);
-            //Debug.WriteLine("-------------in betweeen Addresscontroller put----------------------------");
-
-            if (!StudentExists(id))
-            {
-                Debug.WriteLine("");
-                Debug.WriteLine("Student does not exist !");
-                Debug.WriteLine("");
-            }
-            else 
-            {
-                Debug.WriteLine("");
-                Debug.WriteLine("Student exists !");
-                Debug.WriteLine("");
-            }
-
             if (id != address.addressId)
             {
                 return BadRequest();
@@ -88,13 +58,13 @@ namespace StudentSIMS.Controllers
             try
             {
                 await _context.SaveChangesAsync();
-        }
+            }
             catch (DbUpdateConcurrencyException)
             {
                 if (!AddressExists(id))
                 {
                     return NotFound();
-    }
+                }
                 else
                 {
                     throw;
@@ -107,22 +77,9 @@ namespace StudentSIMS.Controllers
         // POST: api/Addresses
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost("{id}")]
-        public async Task<ActionResult<Address>> PostAddress(int id, Address address)
+        [HttpPost]
+        public async Task<ActionResult<Address>> PostAddress(Address address)
         {
-            if (!StudentExists(id))
-            {
-                Debug.WriteLine("");
-                Debug.WriteLine("Student does not exist !");
-                Debug.WriteLine("");
-            }
-            else
-            {
-                Debug.WriteLine("");
-                Debug.WriteLine("Student exists !");
-                Debug.WriteLine("");
-            }
-
             _context.Address.Add(address);
             await _context.SaveChangesAsync();
 
@@ -148,11 +105,6 @@ namespace StudentSIMS.Controllers
         private bool AddressExists(int id)
         {
             return _context.Address.Any(e => e.addressId == id);
-        }
-
-        private bool StudentExists(int id)
-        {
-            return _context.Student.Any(e => e.studentId == id);
         }
     }
 }
