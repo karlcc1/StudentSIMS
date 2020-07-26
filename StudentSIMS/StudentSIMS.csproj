@@ -5,6 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200725013951_defined-relations.cs" />
+    <Compile Remove="Migrations\20200725013951_defined-relations.Designer.cs" />
+    <Compile Remove="Migrations\20200725015251_defined-relations.cs" />
+    <Compile Remove="Migrations\20200725015251_defined-relations.Designer.cs" />
+    <Compile Remove="Migrations\20200725030344_remove-addressId-from-Student.cs" />
+    <Compile Remove="Migrations\20200725030344_remove-addressId-from-Student.Designer.cs" />
+    <Compile Remove="Migrations\20200725030944_removed-relation-propeties.cs" />
+    <Compile Remove="Migrations\20200725030944_removed-relation-propeties.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.6" />

@@ -67,6 +67,7 @@ namespace StudentSIMS.Controllers
             updateStudent.lastName = student.lastName;
             updateStudent.emailAddress = student.emailAddress;
             updateStudent.phoneNumber = student.phoneNumber;
+            updateStudent.addressId = student.addressId;
 
             await _context.SaveChangesAsync();
 
