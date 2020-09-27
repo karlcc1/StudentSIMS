@@ -1,7 +1,7 @@
 # StudentSIMS
 A simple ASP.NET Core Web API that utilizes Azure services, for MSA 2020 backend part.
 
-View deployed project: https://msa-2020-karl-backend.azurewebsites.net/index.html
+<!-- View deployed project: https://msa-2020-karl-backend.azurewebsites.net/index.html -->
 
 This Web API allows for modification and output of students' information from a hypothetical school database. It contains two tables: Student and Address. The two tables have a one-to-many relationship, explained why further on. The student table includes information like first name, last name, etc. The address table has information like street, postcode, etc. of the student. The website allows interaction with all of the API endpoints such as: GET, PUT, POST, DELETE requests. The following ER diagram represents the data structure:
 
